@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { Link } from "react-router-dom";
 
 function Breadcrumb({
   ...props
@@ -42,7 +43,7 @@ function BreadcrumbLink({
   className,
   ...props
 }) {
-  const Comp = asChild ? Slot : "a"
+  const Comp = asChild ? Slot : Link
 
   return (
     (<Comp
