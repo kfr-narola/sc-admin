@@ -28,7 +28,7 @@ const AppHeader = () => {
   }, []);
 
   return (
-    <header className={`flex h-14 shrink-0 items-center justify-between m-2 px-4 gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 sticky top-2 border-b ${isSticky ? 'z-10 bg-card shadow-sm rounded-md' : 'border-b-transparent shadow-none'} `}>
+    <header className={`flex h-14 shrink-0 items-center justify-between m-2 px-4 gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 sticky top-2 border-b ${isSticky ? 'z-20 bg-card shadow-sm rounded-md' : 'border-b-transparent shadow-none'} `}>
       {/* <header className={`flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 ${isSticky ? 'sticky' : ''} top-0 z-10 border-b bg-background shadow-sm data-[sidebar=collapsed]:w-[calc(100vw-4rem)] data-[sidebar=expanded]:w-[calc(100vw-16rem)] data-[sidebar=collapsed]:data-[collapsible=icon]/sidebar-wrapper:w-[calc(100vw-4rem)] data-[sidebar=expanded]:data-[collapsible=icon]/sidebar-wrapper:w-[calc(100vw-16rem)]`}> */}
       <div className="flex items-center gap-2">
         <SidebarTrigger className="-ml-1" />
