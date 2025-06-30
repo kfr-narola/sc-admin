@@ -21,6 +21,37 @@ const Dashboard = () => {
                 test
               </CardContent>
             </Card>
+            <Card>
+              <CardContent>
+                test
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                test
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                test
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                test
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                test
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                test
+              </CardContent>
+            </Card>
+
             <div className="px-4 lg:px-6">
               {/* <ChartAreaInteractive /> */}
             </div>

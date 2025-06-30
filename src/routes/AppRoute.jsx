@@ -1,20 +1,22 @@
-import React, { Suspense } from 'react';
-import PageLoader from '@/components/PageLoader';
 import AppLayout from '@/layouts/AppLayout';
 import FormLayout from '@/layouts/FormLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Dashboard from '@/pages/Dashboard';
+import User from '@/pages/User';
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
 
-const withLoading = (Component) => {
-  return props => (
-    <Suspense fallback={<PageLoader />}>
-      <Component {...props} />
-    </Suspense>
-  )
-};
+// const withLoading = (Component) => {
+//   return props => (
+//     <Suspense fallback={<PageLoader />}>
+//       <Component {...props} />
+//     </Suspense>
+//   )
+// };
 
-const Login = withLoading(React.lazy(() => import('@/pages/Login')));
-const Dashboard = withLoading(React.lazy(() => import('@/pages/Dashboard')));
-const User = withLoading(React.lazy(() => import('@/pages/User')));
+// const Login = withLoading(React.lazy(() => import('@/pages/Login')));
+// const Dashboard = withLoading(React.lazy(() => import('@/pages/Dashboard')));
+// const User = withLoading(React.lazy(() => import('@/pages/User')));
 
 const publicRouter = createBrowserRouter([
   {
@@ -38,6 +40,10 @@ const publicRouter = createBrowserRouter([
           {
             path: '/auth/login',
             element: <Login />
+          },
+          {
+            path: '/auth/Register',
+            element: <Register />
           }
         ]
       },

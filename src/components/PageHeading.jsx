@@ -1,20 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import { cn } from '@/lib/utils';
 
-const PageHeading = ({ title = "", description = "" }) => {
+const PageHeading = ({ title = "", description = "", className = {} }) => {
+  const { wrapper, title: titleClass, description: descriptionClass } = className;
   return (
-    <div className='flex flex-col items-start justify-center space-y-2 mb-6'>
-      <h2 className="text-2xl font-bold tracking-tight">
+    <div className={cn('flex flex-col items-start justify-center space-y-2 mb-4 h-9', wrapper)}>
+      <h2 className={cn("text-2xl font-bold tracking-tight", titleClass)}>
         {title}
       </h2>
-      {description && <p className="text-muted-foreground">{description}</p>}
+      {description && <p className={cn("text-muted-foreground", descriptionClass)}>{description}</p>}
     </div>
   )
 }
-
-PageHeading.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-};
 
 export default PageHeading
