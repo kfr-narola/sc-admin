@@ -26,7 +26,8 @@ const SelectField = (props) => {
     options = [],
     placeholder = "Select option",
     displayError = true,
-    fullWidth=true,
+    fullWidth = true,
+    valueAsNumber = false,
     ...restProps
   } = props
 
@@ -44,7 +45,16 @@ const SelectField = (props) => {
       render={({ field }) => (
         <FormItem className={cn("w-full", wrapperClass)}>
           {label && <FormLabel className={labelClass}>{label}</FormLabel>}
-          <Select disabled={isDisabled} className={cn("w-full", fieldClass)} onValueChange={field.onChange} defaultValue={field.value} {...restProps}>
+          <Select
+            disabled={isDisabled}
+            className={cn("w-full", fieldClass)}
+            // onValueChange={field.onChange} 
+            onValueChange={(val) => {
+              const finalValue = valueAsNumber ? Number(val) : val;
+              field.onChange(finalValue);
+              handleOnChange?.(finalValue);
+            }}
+            defaultValue={field.value} {...restProps}>
             <FormControl>
               <SelectTrigger className={fullWidth && 'w-full'}>
                 <SelectValue placeholder={placeholder} />
@@ -52,11 +62,11 @@ const SelectField = (props) => {
             </FormControl>
             <SelectContent>
               {options.map((option, index) => {
-                return <SelectItem value={option?.value} key={`select_${name}_${index}`}>{option?.label}</SelectItem>
+                return <SelectItem value={option?.value?.toString()} key={`select_${name}_${index}`}>{option?.label}</SelectItem>
               })}
             </SelectContent>
           </Select>
-          {helperText && <FormDescription>{helperText}</FormDescription>}          
+          {helperText && <FormDescription>{helperText}</FormDescription>}
           {displayError && <FormMessage className={errorClass} />}
         </FormItem>
       )}

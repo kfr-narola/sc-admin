@@ -113,6 +113,17 @@ const Register = () => {
                 placeholder="Enter password"
                 onChange={(e) => console.log(e)}
               />
+              <InputField
+                type="select"
+                name="country"
+                label="Contry"
+                placeholder="Select Country"
+                options={[
+                  { label: "India", value: '1' },
+                  { label: "China", value: '2' }
+                ]}
+                onChange={(e) => console.log(e)}
+              />
               <Button type="submit" className="w-full">Sign In</Button>
             </form>
           </Form>

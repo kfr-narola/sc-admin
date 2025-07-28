@@ -23,6 +23,7 @@ import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import DataTableColumnHeader from '@/components/DataTable/DataTableColumnHeader'
+import { useTheme } from 'next-themes'
 
 const columns = [
   {
@@ -183,11 +184,12 @@ const User = () => {
     <div className='px-2 lg:px-3'>
       <PageHeading title="Users" />
       <div className='bg-card shadow rounded-lg'>
+        <p>DataTable</p>
         <DataTable
           className={{
             table: 'bg-card'
           }}
-          maxHeight="500px"
+          maxHeight="350px"
           data={data}
           pageCount={10}
           pagination={pagination}

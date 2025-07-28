@@ -5,6 +5,52 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sc-admin</title>
+    <script>
+      /*!
+      * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+      * Copyright 2011-2025 The Bootstrap Authors
+      * Licensed under the Creative Commons Attribution 3.0 Unported License.
+      */
+
+      (() => {
+        'use strict'
+
+        const intialThemeSettings = {
+          mode: 'system'
+        }
+
+        const getStoredTheme = () => localStorage.getItem('themeSettings') ? JSON.parse(localStorage.getItem('themeSettings')) : intialThemeSettings
+    
+        const getPreferredTheme = () => {
+          const storedTheme = getStoredTheme()
+          if (storedTheme) {
+            return storedTheme
+          }
+
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+
+        const setTheme = theme => {
+          console.log("SET:", theme);
+          
+          if (theme === 'system') {
+            document.documentElement.setAttribute('data-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+          } else {
+            document.documentElement.setAttribute('data-theme', theme)
+          }
+        }
+
+        setTheme(getPreferredTheme()?.mode)
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const storedTheme = getStoredTheme()
+          if (storedTheme.mode !== 'light' && storedTheme.mode !== 'dark') {
+            setTheme(getPreferredTheme()?.mode)
+          }
+        })
+
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
